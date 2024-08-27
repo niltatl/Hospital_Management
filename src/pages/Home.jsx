@@ -8,6 +8,9 @@ import icon02 from "../assets/images/icon02.png";
 import icon03 from "../assets/images/icon03.png";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
+import DoctorList from "../components/Doctors/DoctorList";
+import { doctors } from "../assets/data/doctors";
+import DoctorCard from "../components/Doctors/DoctorCard";
 
 const Home = () => {
   return (
@@ -104,7 +107,7 @@ const Home = () => {
                   >
                     <BsArrowRight className="group-hover:text-white w-6 h-5" />
                   </Link>
-              </div>
+                </div>
               </div>
 
               <div className="py-[30px] px-5">
@@ -130,7 +133,7 @@ const Home = () => {
                   >
                     <BsArrowRight className="group-hover:text-white w-6 h-5" />
                   </Link>
-              </div>
+                </div>
               </div>
 
               <div className="py-[30px] px-5">
@@ -156,18 +159,22 @@ const Home = () => {
                   >
                     <BsArrowRight className="group-hover:text-white w-6 h-5" />
                   </Link>
+                </div>
               </div>
-              </div>
-
-              
-             
-
-                
-              
-              
             </div>
           </div>
         </section>
+
+        <section>
+          <div className="container">
+            <div className="grid grid-cols-1 sm:grid-cols-2">
+              {doctors.map((doctor) => (
+                <DoctorCard key={doctor.id} doctor={doctor} />
+              ))}
+            </div>
+          </div>
+        </section>
+        <DoctorList />
       </>
     </>
   );
